@@ -19,6 +19,7 @@ WHERE pickup_datetime >= "2022-01-01"
   AND pickup_datetime < "2023-01-01"
   AND borough IS NOT NULL
   AND borough != "EWR"
+  AND (borough = "Brooklyn" OR borough = "Bronx")
   AND TIMESTAMP_DIFF(dropoff_datetime, pickup_datetime, SECOND) >= 60.0
   AND total_amount > 0
   AND tip_amount >= 0
