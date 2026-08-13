@@ -2,6 +2,7 @@
 
 SELECT
   borough,
+  COUNT(*) AS total_trips,
   ROUND(AVG(total_amount), 2) AS avg_total_cost_incl_tip,
   ROUND(AVG(total_amount) - AVG(tip_amount), 2) AS avg_total_cost_excl_tip,
   ROUND(AVG(tip_amount), 2) AS avg_tip_amount,
