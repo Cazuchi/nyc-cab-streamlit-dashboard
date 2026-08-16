@@ -2,14 +2,12 @@ import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
 import google.cloud.bigquery as bigquery
-#import os
 
 st.set_page_config(layout="wide", page_title="NYC Taxi Borough Comparison")
 
 #Function definitions to pull data from the BigQuery table
 @st.cache_data(ttl=3600)
 def get_borough_kpis(borough: str) -> dict:
-    #os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\mha\OneDrive - Wonderful Copenhagen\Skrivebord\cazuchi-07baf8b9f649.json"
     client = bigquery.Client(project="cazuchi")
 
     query = f"""
@@ -43,7 +41,6 @@ def get_borough_kpis(borough: str) -> dict:
 
 @st.cache_data(ttl=3600)
 def get_borough_timeline_data(borough: str) -> dict:
-    #os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\mha\OneDrive - Wonderful Copenhagen\Skrivebord\cazuchi-07baf8b9f649.json"
     client = bigquery.Client(project="cazuchi")
 
     query = f"""
